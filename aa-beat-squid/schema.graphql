@@ -1,0 +1,10 @@
+type Account @entity {
+  id: ID!
+  network: String! @index
+  address: String! @index
+  factory: String! @index
+
+  block: Int! @index
+  timestamp: DateTime! @index
+  txHash: String! @index
+}
