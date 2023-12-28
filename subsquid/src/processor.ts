@@ -15,8 +15,9 @@ import { lookupArchive } from "@subsquid/archive-registry";
 export const ENTRYPOINT_ADDRESS =
   "0x5FF137D4b0FDCD49DcA30c7CF57E578a026d2789".toLowerCase();
 
-export const processorHandler = async (ctx: Context) => {
+export const processorHandler = async (ctx: Context, networkName: string) => {
   const accounts: Account[] = [];
+
   for (let c of ctx.blocks) {
     for (let log of c.logs) {
       if (
@@ -26,15 +27,17 @@ export const processorHandler = async (ctx: Context) => {
         continue;
       let { sender, factory } =
         entrypointAbi.events.AccountDeployed.decode(log);
-      accounts.push({
+      const account = new Account({
         id: log.id,
-        network: "eth",
+        network: networkName,
         address: sender,
         factory: factory,
         block: c.header.height,
         timestamp: new Date(c.header.timestamp),
         txHash: log.transactionHash,
       });
+
+      accounts.push(account);
     }
   }
   await ctx.store.upsert(accounts);

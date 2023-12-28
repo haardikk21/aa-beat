@@ -90,19 +90,7 @@
         "--multicall"
       ]
     },
-    "process:eth": {
-      "description": "Load .env and start the ETH squid processor",
-      "deps": [
-        "build",
-        "migration:apply"
-      ],
-      "cmd": [
-        "node",
-        "--require=dotenv/config",
-        "lib/eth.js"
-      ]
-    },
-    "process:arb": {
+    "process:arbitrum": {
       "description": "Load .env and start the Arbitrum squid processor",
       "deps": [
         "build",
@@ -111,7 +99,7 @@
       "cmd": [
         "node",
         "--require=dotenv/config",
-        "lib/arb.js"
+        "lib/arbitrum.js"
       ]
     },
     "process:prod:arbitrum": {
@@ -122,6 +110,18 @@
       ],
       "hidden": true
     },
+    "process:base": {
+      "description": "Load .env and start the Base squid processor",
+      "deps": [
+        "build",
+        "migration:apply"
+      ],
+      "cmd": [
+        "node",
+        "--require=dotenv/config",
+        "lib/base.js"
+      ]
+    },
     "process:prod:base": {
       "description": "Start the squid processor",
       "cmd": [
@@ -129,6 +129,18 @@
         "lib/base.js"
       ],
       "hidden": true
+    },
+    "process:eth": {
+      "description": "Load .env and start the Ethereum squid processor",
+      "deps": [
+        "build",
+        "migration:apply"
+      ],
+      "cmd": [
+        "node",
+        "--require=dotenv/config",
+        "lib/eth.js"
+      ]
     },
     "process:prod:eth": {
       "description": "Start the squid processor",
@@ -141,6 +153,18 @@
       ],
       "hidden": true
     },
+    "process:gnosis": {
+      "description": "Load .env and start the Gnosis squid processor",
+      "deps": [
+        "build",
+        "migration:apply"
+      ],
+      "cmd": [
+        "node",
+        "--require=dotenv/config",
+        "lib/gnosis.js"
+      ]
+    },
     "process:prod:gnosis": {
       "description": "Start the squid processor",
       "cmd": [
@@ -149,6 +173,18 @@
       ],
       "hidden": true
     },
+    "process:matic": {
+      "description": "Load .env and start the Matic squid processor",
+      "deps": [
+        "build",
+        "migration:apply"
+      ],
+      "cmd": [
+        "node",
+        "--require=dotenv/config",
+        "lib/matic.js"
+      ]
+    },
     "process:prod:matic": {
       "description": "Start the squid processor",
       "cmd": [
@@ -156,6 +192,18 @@
         "lib/matic.js"
       ],
       "hidden": true
+    },
+    "process:optimism": {
+      "description": "Load .env and start the Optimism squid processor",
+      "deps": [
+        "build",
+        "migration:apply"
+      ],
+      "cmd": [
+        "node",
+        "--require=dotenv/config",
+        "lib/optimism.js"
+      ]
     },
     "process:prod:optimism": {
       "description": "Start the squid processor",
@@ -182,8 +230,6 @@
         "--dumb-cache-size",
         "100",
         "--dumb-cache-max-age",
-        "1000",
-        "--max-response-size",
         "1000"
       ]
     },

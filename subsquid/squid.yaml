@@ -1,5 +1,5 @@
 manifestVersion: subsquid.io/v0.1
-name: aa-beat-squid
+name: subsquid
 version: 1
 description: A squid that indexes AA WalletFactory contracts across EVM networks
 build:
@@ -17,7 +17,7 @@ deploy:
     - name: arb-processor
       cmd:
         - sqd
-        - process:prod:arb
+        - process:prod:arbitrum
     - name: base-processor
       cmd:
         - sqd
@@ -29,7 +29,7 @@ deploy:
     - name: gno-processor
       cmd:
         - sqd
-        - process:prod:gno
+        - process:prod:gnosis
     - name: matic-processor
       cmd:
         - sqd
@@ -37,8 +37,10 @@ deploy:
     - name: op-processor
       cmd:
         - sqd
-        - process:prod:op
+        - process:prod:optimism
   api:
     cmd:
       - sqd
       - serve:prod
+scale:
+  dedicated: false

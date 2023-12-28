@@ -8,6 +8,9 @@ const processor = getProcessor({
 });
 
 processor.run(
-  new TypeormDatabase({ supportHotBlocks: true, stateSchema: "eth_processor" }),
-  processorHandler
+  new TypeormDatabase({
+    supportHotBlocks: true,
+    stateSchema: "gnosis_processor",
+  }),
+  (ctx) => processorHandler(ctx, "gnosis")
 );

@@ -41,7 +41,7 @@ devDependencies:
     specifier: ^1.3.2
     version: 1.3.2
   '@types/node':
-    specifier: ^20.8.8
+    specifier: ^20.10.4
     version: 20.10.4
   typescript:
     specifier: ~5.2.2

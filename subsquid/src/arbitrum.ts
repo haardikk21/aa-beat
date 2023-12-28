@@ -8,6 +8,6 @@ const processor = getProcessor({
 });
 
 processor.run(
-  new TypeormDatabase({ supportHotBlocks: true, stateSchema: "eth_processor" }),
-  processorHandler
+  new TypeormDatabase({ supportHotBlocks: true, stateSchema: "arb_processor" }),
+  (ctx) => processorHandler(ctx, "arbitrum")
 );
