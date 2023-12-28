@@ -5,27 +5,27 @@ description: A squid that indexes AA WalletFactory contracts across EVM networks
 build:
 deploy:
   secrets:
-    - RPC_ENDPOINT_ETH
-    - RPC_ENDPOINT_OP
     - RPC_ENDPOINT_ARB
+    - RPC_ENDPOINT_BASE
+    - RPC_ENDPOINT_ETH
     - RPC_ENDPOINT_GNO
     - RPC_ENDPOINT_MATIC
-    - RPC_ENDPOINT_BASE
+    - RPC_ENDPOINT_OP
   addons:
     postgres:
   processor:
-    - name: eth-processor
-      cmd:
-        - sqd
-        - process:prod:eth
-    - name: op-processor
-      cmd:
-        - sqd
-        - process:prod:op
     - name: arb-processor
       cmd:
         - sqd
         - process:prod:arb
+    - name: base-processor
+      cmd:
+        - sqd
+        - process:prod:base
+    - name: eth-processor
+      cmd:
+        - sqd
+        - process:prod:eth
     - name: gno-processor
       cmd:
         - sqd
@@ -34,10 +34,10 @@ deploy:
       cmd:
         - sqd
         - process:prod:matic
-    - name: base-processor
+    - name: op-processor
       cmd:
         - sqd
-        - process:prod:base
+        - process:prod:op
   api:
     cmd:
       - sqd

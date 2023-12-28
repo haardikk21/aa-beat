@@ -114,6 +114,22 @@
         "lib/arb.js"
       ]
     },
+    "process:prod:arbitrum": {
+      "description": "Start the squid processor",
+      "cmd": [
+        "node",
+        "lib/arbitrum.js"
+      ],
+      "hidden": true
+    },
+    "process:prod:base": {
+      "description": "Start the squid processor",
+      "cmd": [
+        "node",
+        "lib/base.js"
+      ],
+      "hidden": true
+    },
     "process:prod:eth": {
       "description": "Start the squid processor",
       "deps": [
@@ -121,15 +137,31 @@
       ],
       "cmd": [
         "node",
-        "lib/eth/main.js"
+        "lib/eth.js"
       ],
       "hidden": true
     },
-    "process:prod:bsc": {
+    "process:prod:gnosis": {
       "description": "Start the squid processor",
       "cmd": [
         "node",
-        "lib/bsc/main.js"
+        "lib/gnosis.js"
+      ],
+      "hidden": true
+    },
+    "process:prod:matic": {
+      "description": "Start the squid processor",
+      "cmd": [
+        "node",
+        "lib/matic.js"
+      ],
+      "hidden": true
+    },
+    "process:prod:optimism": {
+      "description": "Start the squid processor",
+      "cmd": [
+        "node",
+        "lib/optimism.js"
       ],
       "hidden": true
     },
@@ -150,6 +182,8 @@
         "--dumb-cache-size",
         "100",
         "--dumb-cache-max-age",
+        "1000",
+        "--max-response-size",
         "1000"
       ]
     },
