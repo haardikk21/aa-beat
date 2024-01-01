@@ -1,7 +1,10 @@
 {
-  "name": "aa-beat",
+  "name": "useroperations",
   "version": "1.0.0",
   "description": "",
+  "scripts": {
+    "web:dev": "pnpm --filter web dev"
+  },
   "author": "",
   "license": "ISC"
 }

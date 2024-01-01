@@ -1,5 +1,5 @@
 {
-  "name": "squid-evm-template",
+  "name": "subsquid",
   "private": true,
   "scripts": {
     "build": "rm -rf lib && tsc"
@@ -19,6 +19,7 @@
     "@subsquid/evm-typegen": "^3.2.3",
     "@subsquid/typeorm-codegen": "^1.3.2",
     "@types/node": "^20.10.4",
+    "rimraf": "^5.0.5",
     "typescript": "~5.2.2"
   }
 }

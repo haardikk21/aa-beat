@@ -1,8 +1,27 @@
 type Account @entity {
   id: ID!
   network: String! @index
+
   address: String! @index
   factory: String! @index
+
+  block: Int! @index
+  timestamp: DateTime! @index
+  txHash: String! @index
+}
+
+type UserOperation @entity {
+  id: ID!
+  network: String! @index
+
+  sender: String! @index
+  paymaster: String! @index
+  bundler: String! @index
+
+  userOpHash: String!
+  success: Boolean! @index
+  actualGasCost: BigInt!
+  actualGasUsed: BigInt!
 
   block: Int! @index
   timestamp: DateTime! @index
